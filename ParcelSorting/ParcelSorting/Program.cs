@@ -5,6 +5,52 @@
         static void Main(string[] args)
         {
             Console.WriteLine("Hello, World!");
+
+            FirstParcelLine(boxSizes);
+        }
+
+
+        public static void FirstParcelLine(List<BoxSize> boxSizes)
+        {
+            //bool parcelFits = false;
+
+
+            foreach (BoxSize box in boxSizes) 
+            {
+                Console.WriteLine("New sorting line starts");
+
+                var boxLengthInHalf = box.Length /2;
+                var halfBoxDiagonalNotSqrt = (boxLengthInHalf * boxLengthInHalf) + (box.Width * box.Width);
+                var halfParcelDiagonal = Math.Sqrt(halfBoxDiagonalNotSqrt);
+
+
+                foreach (SortingLineParam sortingLine in box.SortingLineParams)
+                {
+
+                    if (sortingLine.Width >= halfParcelDiagonal)
+                    {
+                        Console.WriteLine("Sorting line width is {0} and fits", sortingLine.Width);
+                    }
+                    else if (sortingLine.Width >= box.Width)
+                    {
+                        Console.WriteLine("Sorting line width is {0} and fits", sortingLine.Width);
+                    }
+
+                    //else if (sortingLine.Width <= halfParcelDiagonal && halfParcelDiagonal >= sortingLineDiagonal)
+
+                    else
+                    {
+                        Console.WriteLine("It dosent fit to the sorting line and needs to be wider");
+                    }
+
+
+                }
+
+                Console.WriteLine("\n");
+
+            }
+
+            //return parcelFits;
         }
 
 
