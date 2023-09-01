@@ -1,16 +1,16 @@
 ﻿namespace ParcelSorting
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
             Console.WriteLine("Hello, World!");
 
-            FirstParcelLine(boxSizes);
+            ParcelLine(boxSizes);
         }
 
 
-        public static void FirstParcelLine(List<BoxSize> boxSizes)
+        public static bool ParcelLine(List<BoxSize> boxSizes)
         {
             bool parcelFits = false;
 
@@ -43,10 +43,10 @@
                     //{
                     //    Console.WriteLine("Sorting line width is {0} and fits", sortingLine.Width);
                     //}
-                    //else if (sortingLine.Width <= halfParcelDiagonal && lineWidth >= halfParcelDiagonal)
-                    //{
-                    //    Console.WriteLine("Sorting line width is {0} and fits", sortingLine.Width);
-                    //}
+                    else if (sortingLine.Width <= halfParcelDiagonal && lineWidth >= halfParcelDiagonal)
+                    {
+                        Console.WriteLine("Sorting line width is {0} and fits", sortingLine.Width);
+                    }
                     else if (sortingLine.Width >= smallDiagonal)
                     {
                         Console.WriteLine("Sorting line width is {0} and fits", sortingLine.Width);
@@ -73,7 +73,7 @@
 
             }
 
-            //return parcelFits;
+            return parcelFits;
         }
 
 
@@ -151,7 +151,7 @@
         };
     }
 
-    class BoxSize
+    public class BoxSize
     {
         public int Length { get; set; }
         public int Width { get; set; }
@@ -159,7 +159,7 @@
             = new List<SortingLineParam>();
     }
 
-    class SortingLineParam
+    public class SortingLineParam
     {
         public int Width { get; set; }
     }
