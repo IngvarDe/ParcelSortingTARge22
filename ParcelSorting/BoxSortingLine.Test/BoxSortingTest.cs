@@ -23,11 +23,11 @@ namespace BoxSortingLine.Test
                     {
                         new SortingLineParam
                         {
-                            Width = 50,
+                            Width = 5,
                         },
                         new SortingLineParam
                         {
-                            Width = 50,
+                            Width = 500,
                         },
                         new SortingLineParam
                         {
